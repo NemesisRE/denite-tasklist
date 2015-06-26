@@ -53,3 +53,25 @@ g:unite_tasklist_tokens_highlight           *g:unite_tasklist_tokens_highlight*
 >
   let g:unite_tasklist_tokens_highlight = 1
 <
+
+g:unite_tasklist_token_syntax_prefix     *g:unite_tasklist_token_syntax_prefix*
+    A string that is appended before the token to be matched
+    for syntax highlighting
+
+>
+  let g:unite_tasklist_token_syntax_prefix = '\W\zs'
+<
+
+g:unite_tasklist_token_syntax_postfix     *g:unite_tasklist_token_syntax_postfix*
+    A string that is appended after the token to be matched
+    for syntax highlighting
+
+>
+  let g:unite_tasklist_token_syntax_postfix = ':'
+<
+
+g:unite_tasklist_token_syntax_group       *g:unite_tasklist_token_syntax_group*
+    The syntax group the tokens should be added to
+>
+  let g:unite_tasklist_token_syntax_group = 'Todo'
+<

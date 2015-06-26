@@ -26,8 +26,23 @@ if !exists('g:unite_tasklist_tokens_highlight')
 endif
 
 if g:unite_tasklist_tokens_highlight
+
+  if !exists('g:unite_tasklist_token_syntax_prefix')
+    let g:unite_tasklist_token_syntax_prefix = '\W\zs'
+  endif
+
+  if !exists('g:unite_tasklist_token_syntax_group')
+   let g:unite_tasklist_token_syntax_group = 'Todo'
+  endif
+
+  if !exists('g:unite_tasklist_token_syntax_postfix')
+   let g:unite_tasklist_token_syntax_postfix = ':'
+  endif
+
   for token in g:unite_tasklist_tokens
-    call matchadd('Todo', '\W\zs'.token.':', -1)
+    call matchadd(g:unite_tasklist_token_syntax_group,
+          \ g:unite_tasklist_token_syntax_prefix . token .
+          \ g:unite_tasklist_token_syntax_postfix)
   endfor
 endif
 
