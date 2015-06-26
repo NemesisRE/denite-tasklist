@@ -1,0 +1,55 @@
+*unite-tasklist.txt* Tasklist source for unite
+
+Author: VanLaser
+        zyphrus
+
+INTRODUCTION                                      *unite-tasklist-introduction*
+
+*unite-tasklist* is a |unite.vim| plugin for selecting |tasks|
+
+Requirement:
+- |unite.vim| (Recommend latest version at https://github.com/Shougo/unite.vim)
+
+===============================================================================
+
+USAGE                                                    *unite-tasklist-usage*
+
+To select tasklist, execute |:Unite| with the source as tasklist
+>
+	:Unite tasklist
+<
+
+
+VARIABLES                                            *unite-tasklist-variables*
+
+g:unite_tasklist_tokens                               *g:unite_tasklist_tokens*
+    The tokens searched for when making the task list
+>
+    let g:unite_tasklist_tokens = [
+        \ 'BUG',
+        \ 'CAUTION',
+        \ 'ERROR',
+        \ 'FIXME',
+        \ 'HACK',
+        \ 'PATCH',
+        \ 'TBD',
+        \ 'TODO',
+        \ 'WARNING',
+        \ 'XXX',
+        \]
+
+<
+
+g:unite_tasklist_ignorecase                       *g:unite_tasklist_ignorecase*
+    Wither or not the case of the tokens matters
+>
+    let g:unite_tasklist_ignorecase = 0
+<
+
+g:unite_tasklist_tokens_highlight           *g:unite_tasklist_tokens_highlight*
+    If 1 then the tokens in g:unite_tasklist_tokens are added to the syntax
+    group Todo
+
+>
+  let g:unite_tasklist_tokens_highlight = 1
+<

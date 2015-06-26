@@ -6,12 +6,12 @@ let s:unite_source = {
 
 "inspired from 'unite-outline'
 function! s:Source_Hooks_on_init(args, context)
-    let a:context.source__tasklist_source_bufnr = bufnr('%')
-    let a:context.source__tasklist_source_path = expand('%:p')
+  let a:context.source__tasklist_source_bufnr = bufnr('%')
+  let a:context.source__tasklist_source_path = expand('%:p')
 endfunction
 
 function! s:get_SID()
-    return matchstr(expand('<sfile>'), '<SNR>\d\+_')
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_')
 endfunction
 let s:SID = s:get_SID()
 delfunction s:get_SID
@@ -22,22 +22,12 @@ function! s:unite_source.gather_candidates(args, context)
   let l:candidates = []
   let l:tpath = a:context.source__tasklist_source_path
   let l:tbufnr = a:context.source__tasklist_source_bufnr
-  let l:wordlist = get(g:, 'unite_tasklist_tokens', [
-        \ 'BUG',
-        \ 'CAUTION',
-        \ 'ERROR',
-        \ 'FIXME',
-        \ 'HACK',
-        \ 'PATCH',
-        \ 'TBD',
-        \ 'TODO',
-        \ 'WARNING',
-        \ 'XXX',
-        \])
+  let l:wordlist = g:unite_tasklist_tokens
   let l:regexp = '\v<(' . join(l:wordlist, '|') . ')>'
-  if get(g:, 'unite_tasklist_ignorecase', 0)
+
+  if g:unite_tasklist_ignorecase
     let l:regexp = '\c' . l:regexp
-else
+  else
     let l:regexp = '\C' . l:regexp
   endif
   let l:tcnt = 1
